@@ -275,7 +275,7 @@ export default function LandingPage() {
             >
               <div className="relative z-10">
                 <img
-                  src="/unclewithmap.jpg"
+                  src="/profile1.jpg"
                   alt="Global Trade Network"
                   className="w-full rounded-lg shadow-2xl"
                 />
@@ -507,6 +507,36 @@ export default function LandingPage() {
                 title: "Bridge Course",
                 description: "Preparatory courses to bridge educational gaps and prepare students for advanced studies.",
                 features: ["Academic Preparation", "Skill Assessment", "Career Guidance", "Foundation Building"]
+              },
+              {
+                image: "/communication.jpg",
+                title: "Communication Skills Training",
+                description: "Enhance your verbal and written communication skills for professional and personal success.",
+                features: ["Public Speaking", "Business Writing", "Presentation Skills", "Interpersonal Communication"]
+              },
+              {
+                image: "/translationgraphic.jpg",
+                title: "Translation Services",
+                description: "Professional translation training and services for multiple languages and document types.",
+                features: ["Language Translation", "Document Localization", "Technical Translation", "Cultural Adaptation"]
+              },
+              {
+                image: "/sharemarket.jpg",
+                title: "Banking & Share Market Training",
+                description: "Comprehensive training in banking operations, financial markets, and investment strategies.",
+                features: ["Banking Operations", "Stock Market Analysis", "Investment Planning", "Financial Planning"]
+              },
+              {
+                image: "/digitalmarketing.jpg",
+                title: "Digital Marketing & International Trading",
+                description: "Master digital marketing strategies and international trade practices for global business success.",
+                features: ["SEO & SEM", "Social Media Marketing", "Export-Import", "Global Trade Regulations"]
+              },
+              {
+                image: "/jobplacement.jpg",
+                title: "Job Placement & Internship Program",
+                description: "Career guidance, job placement assistance, and internship opportunities to kickstart your career.",
+                features: ["Career Counseling", "Resume Building", "Interview Preparation", "Industry Connections"]
               }
             ].map((service, index) => (
               <motion.div
