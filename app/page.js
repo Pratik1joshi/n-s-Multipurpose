@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Phone,
   Mail,
@@ -29,6 +29,11 @@ import {
   MessageCircle,
   Menu,
   X,
+  Quote,
+  Heart,
+  Sparkles,
+  Mountain,
+  Sun,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -39,16 +44,128 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { useRef } from "react";
 import Link from "next/link";
 import CounterAnimation from "@/components/counter-animation";
+
+// Nepali Text Animation Component
+const NepaliTextReveal = ({ text, translation, delay = 0 }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef();
+  const isInView = useInView(ref);
+
+  useEffect(() => {
+    if (isInView) {
+      setTimeout(() => setIsVisible(true), delay);
+    }
+  }, [isInView, delay]);
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isVisible ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.8 }}
+      className="relative"
+    >
+      <div className="relative bg-gradient-to-r from-orange-50 to-blue-50 p-6 rounded-xl border-l-4 border-orange-500 shadow-lg backdrop-blur-sm">
+        <Quote className="absolute top-2 left-2 w-6 h-6 text-orange-400 opacity-50" />
+        <div className="pl-8">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={isVisible ? { opacity: 1 } : {}}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="text-lg md:text-xl font-semibold text-gray-800 mb-2 leading-relaxed"
+            style={{ fontFamily: 'Noto Sans Devanagari, serif' }}
+          >
+            {text}
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={isVisible ? { opacity: 1 } : {}}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            className="text-sm text-gray-600 italic"
+          >
+            "{translation}"
+          </motion.p>
+        </div>
+        <div className="absolute top-4 right-4">
+          <Heart className="w-5 h-5 text-red-400" />
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+// Floating Nepali Elements Component
+const FloatingNepaliElements = () => {
+  const [isClient, setIsClient] = useState(false);
+  
+  // Predefined positions that will be consistent between server and client
+  const elements = [
+    { text: "सफलता", translation: "Success", delay: 0, position: 20 },
+    { text: "शिक्षा", translation: "Education", delay: 1000, position: 40 },
+    { text: "प्रगति", translation: "Progress", delay: 2000, position: 60 },
+    { text: "ज्ञान", translation: "Knowledge", delay: 3000, position: 80 }
+  ];
+  
+  // Set isClient to true only on the client side
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {elements.map((element, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 100, x: 0 }}
+          animate={isClient ? { 
+            opacity: [0, 0.7, 0],
+            y: -100,
+            x: index % 2 === 0 ? 50 : -50
+          } : { opacity: 0, y: 100, x: 0 }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            delay: element.delay / 1000,
+            ease: "easeOut"
+          }}
+          className="absolute bottom-0"
+          style={{ left: `${element.position}%` }}
+        >
+          <div className="bg-gradient-to-r from-orange-400 to-blue-400 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg">
+            {element.text}
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
+// Mountain Range Component
+const MountainRange = () => (
+  <div className="absolute bottom-0 left-0 right-0 h-32 opacity-10">
+    <svg viewBox="0 0 1200 300" className="w-full h-full">
+      <path
+        d="M0,300 L0,200 L100,150 L200,180 L300,120 L400,160 L500,100 L600,140 L700,90 L800,130 L900,80 L1000,120 L1100,70 L1200,110 L1200,300 Z"
+        fill="url(#mountainGradient)"
+      />
+      <defs>
+        <linearGradient id="mountainGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#f97316" />
+          <stop offset="100%" stopColor="#2563eb" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+);
 
 const WhatsAppIcon = (props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={props.width || "24"}
-      height={props.height || "24"}
+      width={props.width || "20"}
+      height={props.height || "20"}
       viewBox="0 0 24 24"
       fill="currentColor"
       strokeWidth="0"
@@ -120,14 +237,12 @@ export default function LandingPage() {
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
       y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
   };
 
   const allServices = [
@@ -436,19 +551,19 @@ export default function LandingPage() {
                 href="#"
                 className="hover:text-orange-200 transition-colors duration-200 p-1 rounded"
               >
-                <Facebook className="w-4 h-4 md:w-5 md:h-5" />
+                <Facebook className="w-5 h-5" />
               </a>
               <a
                 href="#"
                 className="hover:text-orange-200 transition-colors duration-200 p-1 rounded"
               >
-                <Instagram className="w-4 h-4 md:w-5 md:h-5" />
+                <Instagram className="w-5 h-5" />
               </a>
               <a
                 href="#"
                 className="hover:text-orange-200 transition-colors duration-200 p-1 rounded"
               >
-                <Linkedin className="w-4 h-4 md:w-5 md:h-5" />
+                <Linkedin className="w-5 h-5" />
               </a>
               
             </div>
@@ -547,12 +662,15 @@ export default function LandingPage() {
         )}
       </header>
 
-      {/* Hero Section */}
+      {/* Enhanced Hero Section */}
       <section
         ref={heroRef}
-        className="py-12 md:py-20 bg-gradient-to-br from-orange-50 via-white to-blue-50 overflow-hidden"
+        className="relative py-12 md:py-20 bg-gradient-to-br from-orange-50 via-white to-blue-50 overflow-hidden"
       >
-        <div className="container mx-auto px-4">
+        <MountainRange />
+        <FloatingNepaliElements />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center max-w-7xl mx-auto">
             <motion.div
               variants={containerVariants}
@@ -560,6 +678,17 @@ export default function LandingPage() {
               animate={heroControls}
               className="text-center lg:text-left order-2 lg:order-1"
             >
+              <motion.div
+                variants={itemVariants}
+                className="mb-6"
+              >
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-100 to-blue-100 px-4 py-2 rounded-full mb-4">
+                  <Mountain className="w-4 h-4 text-orange-600" />
+                  <span className="text-sm font-medium text-gray-700">नेपालको गर्व</span>
+                  <Sparkles className="w-4 h-4 text-blue-600" />
+                </div>
+              </motion.div>
+
               <motion.h1
                 variants={itemVariants}
                 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6"
@@ -568,8 +697,49 @@ export default function LandingPage() {
                   Namaste And Shalom
                 </span>
                 <br />
-                Multipurpose Trade Pvt.ltd
+                <span className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-700">
+                  Multipurpose Trade Pvt.ltd
+                </span>
               </motion.h1>
+
+              {/* Enhanced Nepali Motto with Animation */}
+              <motion.div
+                variants={itemVariants}
+                className="mb-6"
+              >
+                <div className="relative p-6 bg-gradient-to-r from-orange-400/10 to-blue-400/10 rounded-2xl border border-orange-200/50 backdrop-blur-sm">
+                  <div className="absolute -top-3 left-6">
+                    <div className="bg-gradient-to-r from-orange-500 to-blue-500 text-white px-3 py-1 rounded-full text-xs font-medium">
+                      हाम्रो संकल्प
+                    </div>
+                  </div>
+                  
+                  <motion.p
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={isHeroInView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ delay: 0.8, duration: 0.6 }}
+                    className="text-lg md:text-xl font-bold text-gray-800 mb-2 text-center leading-relaxed"
+                    style={{ fontFamily: 'Noto Sans Devanagari, serif' }}
+                  >
+                    समृद्धि तथा दिगो विकासका लागि नविन सोच, नविन प्रविधि सहित सेवाका लागि सक्षम
+                  </motion.p>
+                  
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 1.2, duration: 0.6 }}
+                    className="text-center"
+                  >
+                    <div className="inline-flex items-center gap-2 text-sm text-gray-600 bg-white/70 px-3 py-1 rounded-full">
+                      <Sun className="w-4 h-4 text-yellow-500" />
+                      <span className="italic">
+                        "Prosperity and sustainable development through innovative thinking, modern technology, and capable service"
+                      </span>
+                    </div>
+                  </motion.div>
+                </div>
+              </motion.div>
+
               <motion.p
                 variants={itemVariants}
                 className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8"
@@ -578,17 +748,19 @@ export default function LandingPage() {
                 training. Your pathway to professional excellence and career
                 advancement.
               </motion.p>
+
               <motion.div
                 variants={itemVariants}
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
               >
-                <Link href="#services">                <Button
-                  size="lg"
-                  onClick={() => smoothScrollTo('services')}
-                  className="cursor-pointer bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-sm md:text-base"
-                >
-                  Explore Training Programs
-                </Button>
+                <Link href="#services">
+                  <Button
+                    size="lg"
+                    onClick={() => smoothScrollTo('services')}
+                    className="cursor-pointer bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-sm md:text-base"
+                  >
+                    Explore Training Programs
+                  </Button>
                 </Link>
                 <Link href="#contact">
                   <Button
@@ -703,22 +875,32 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-12 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
+      {/* Enhanced About Section */}
+      <section id="about" className="py-12 md:py-20 bg-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-orange-50/30 to-transparent"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="order-2 lg:order-1"
+              className="order-2 lg:order-1 relative"
             >
-              <img
-                src="/profilepic.jpg"
-                alt="About Namaste & Shalom"
-                className="w-full h-auto rounded-lg shadow-lg"
-              />
+              <div className="relative">
+                <img
+                  src="/profilepic.jpg"
+                  alt="About Namaste & Shalom"
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
+                <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-orange-500 to-blue-500 text-white p-4 rounded-lg shadow-xl">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold">15+</div>
+                    <div className="text-sm">वर्षको अनुभव</div>
+                  </div>
+                </div>
+              </div>
             </motion.div>
 
             <motion.div
@@ -728,9 +910,24 @@ export default function LandingPage() {
               viewport={{ once: true }}
               className="order-1 lg:order-2 text-center lg:text-left"
             >
+              <div className="mb-6">
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-orange-100 px-4 py-2 rounded-full mb-4">
+                  <span className="text-sm font-medium text-gray-700">हाम्रो बारेमा</span>
+                </div>
+              </div>
+
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 md:mb-6">
                 About Our Institute
               </h2>
+
+              {/* Enhanced Nepali Philosophy Section */}
+              <div className="mb-6">
+                <NepaliTextReveal 
+                  text="शिक्षा नै जीवनको आधार हो, र हामी यसैलाई व्यावहारिक र प्रभावकारी बनाउँछौं।"
+                  translation="Education is the foundation of life, and we make it practical and effective."
+                />
+              </div>
+
               <p className="text-base md:text-lg text-gray-600 mb-4 md:mb-6">
                 Namaste & Shalom Multipurpose Trade Pvt. Ltd. is a premier
                 training institute dedicated to empowering individuals with
@@ -739,6 +936,15 @@ export default function LandingPage() {
                 including agriculture, hospitality, technology, and professional
                 development.
               </p>
+
+              <div className="mb-6">
+                <NepaliTextReveal 
+                  text="सिप र ज्ञानको संयोजनले व्यक्तिको भविष्य उज्यालो बनाउँछ।"
+                  translation="The combination of skills and knowledge brightens a person's future."
+                  delay={500}
+                />
+              </div>
+
               <p className="text-sm md:text-base text-gray-600 mb-6 md:mb-8">
                 Our commitment to quality education and hands-on training has
                 made us a trusted choice for students seeking career advancement
@@ -763,14 +969,15 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="mt-12 md:mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
           >
-            <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
               <CardHeader className="pb-4">
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <GraduationCap className="w-6 h-6 md:w-8 md:h-8 text-orange-600" />
                 </div>
                 <CardTitle className="text-lg md:text-xl">
                   Expert Training
                 </CardTitle>
+                <div className="text-sm text-orange-600 font-medium">विशेषज्ञ तालिम</div>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-600 text-sm md:text-base">
@@ -780,14 +987,15 @@ export default function LandingPage() {
               </CardContent>
             </Card>
 
-            <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
               <CardHeader className="pb-4">
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <TrendingUp className="w-6 h-6 md:w-8 md:h-8 text-blue-600" />
                 </div>
                 <CardTitle className="text-lg md:text-xl">
                   Career Growth
                 </CardTitle>
+                <div className="text-sm text-blue-600 font-medium">करियर वृद्धि</div>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-600 text-sm md:text-base">
@@ -797,14 +1005,15 @@ export default function LandingPage() {
               </CardContent>
             </Card>
 
-            <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 sm:col-span-2 lg:col-span-1">
+            <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group sm:col-span-2 lg:col-span-1">
               <CardHeader className="pb-4">
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <Award className="w-6 h-6 md:w-8 md:h-8 text-green-600" />
                 </div>
                 <CardTitle className="text-lg md:text-xl">
                   Certification
                 </CardTitle>
+                <div className="text-sm text-green-600 font-medium">प्रमाणीकरण</div>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-600 text-sm md:text-base">
@@ -817,7 +1026,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Services Section - keeping your existing implementation */}
       <section id="services" className="py-12 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
@@ -908,6 +1117,8 @@ export default function LandingPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Contact Section - keeping your existing implementation */}
       <section id="contact" className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -948,7 +1159,7 @@ export default function LandingPage() {
                       <p className="text-gray-600 text-sm md:text-base">
                         Namaste And Shalom Multipurpose Trade Pvt.ltd
                         <br />
-                        Kathmandu, Post Box No. 25034, Nepal
+                        Kathmandu, Post Box No. 25034, Nepal
                       </p>
                     </div>
                   </div>
@@ -1051,7 +1262,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Footer - keeping your existing implementation */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
