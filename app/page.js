@@ -512,6 +512,19 @@ export default function LandingPage() {
       ],
       category: "professional",
     },
+    {
+      image: "/airline_ticket.png",
+      title: "Airlines and Ticketing Training",
+      description:"Comprehensive training in airline operations, reservation systems, and ticketing procedures for a successful career in the travel industry.",
+      features: [
+        "Airline Reservation Systems",
+        "Ticketing Procedures",
+        "Customer Service Skills",
+        "Industry Certifications"
+      ],
+      category: "professional",
+
+    },
   ];
 
   const displayedServices = showAllServices
