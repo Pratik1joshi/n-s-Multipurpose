@@ -540,11 +540,11 @@ export default function LandingPage() {
             <div className="flex flex-wrap items-center justify-center md:justify-start space-x-4 md:space-x-8 text-xs md:text-sm">
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 md:w-5 md:h-5" />
-                <span className="font-medium">info@nstrade.com.np</span>
+                <span className="font-medium">namaste.shalom2000@gmail.com</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 md:w-5 md:h-5" />
-                <span className="font-medium">+977-1-4423456</span>
+                <span className="font-medium">+977 9841529843</span>
               </div>
               <div className="hidden sm:flex items-center space-x-2">
                 <MapPin className="w-4 h-4 md:w-5 md:h-5" />
@@ -1206,7 +1206,7 @@ export default function LandingPage() {
                         Email
                       </p>
                       <p className="text-gray-600 text-sm md:text-base">
-                        info@namastelshalom.com
+                        namaste.shalom2000@gmail.com
                       </p>
                     </div>
                   </div>
@@ -1325,7 +1325,7 @@ export default function LandingPage() {
               <div className="space-y-2 text-gray-400">
                 <p>Kathmandu, Nepal</p>
                 <p>Post Box No. 25034</p>
-                <p>info@namastelshalom.com</p>
+                <p>namaste.shalom2000@gmail.com</p>
               </div>
             </div>
           </div>
