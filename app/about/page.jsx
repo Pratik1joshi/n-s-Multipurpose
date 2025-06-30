@@ -170,10 +170,15 @@ export default function AboutPage() {
 
           {/* Desktop Button & Mobile Menu Toggle */}
           <div className="flex items-center space-x-4">
-            <button className="hidden sm:flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-white text-sm md:text-base px-6 py-2.5 rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:scale-105">
+            <a 
+              href="https://wa.me/9779841757991?text=Hello%2C%20I%20saw%20your%20website%20and%20I%20want%20to%20enroll%20in%20your%20training%20program."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-white text-sm md:text-base px-6 py-2.5 rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:scale-105"
+            >
               <span>Enroll Now</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </a>
             
             {/* Mobile Menu Button */}
             <button
@@ -210,9 +215,14 @@ export default function AboutPage() {
               >
                 Contact
               </a>
-              <button className="w-full bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-white text-sm mt-4 px-6 py-3 rounded-full font-medium transition-all duration-300">
+              <a 
+                href="https://wa.me/9779841757991?text=Hello%2C%20I%20saw%20your%20website%20and%20I%20want%20to%20enroll%20in%20your%20training%20program."
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-full bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-white text-sm mt-4 px-6 py-3 rounded-full font-medium transition-all duration-300 text-center block"
+              >
                 Enroll Now
-              </button>
+              </a>
             </nav>
           </div>
         )}
@@ -501,13 +511,21 @@ export default function AboutPage() {
               Join thousands of students who have transformed their careers with our training programs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center justify-center space-x-2">
+              <a 
+                href="/#services"
+                className="bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center justify-center space-x-2"
+              >
                 <span>Browse Programs</span>
                 <ChevronRight className="w-5 h-5" />
-              </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full font-semibold transition-all duration-300">
+              </a>
+              <a
+                href="https://wa.me/9779841757991?text=Hello%2C%20I%20saw%20your%20website%20and%20I%20want%20to%20enroll%20in%20your%20training%20program."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full font-semibold transition-all duration-300 flex items-center justify-center"
+              >
                 Contact Us
-              </button>
+              </a>
             </div>
           </div>
         </div>

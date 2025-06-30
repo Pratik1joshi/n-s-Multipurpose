@@ -46,6 +46,7 @@ import {
 import { motion, useAnimation, useInView } from "framer-motion";
 import Link from "next/link";
 import CounterAnimation from "@/components/counter-animation";
+import ContactForm from "@/components/contact-form";
 
 // Nepali Text Animation Component
 const NepaliTextReveal = ({ text, translation, delay = 0 }) => {
@@ -555,7 +556,7 @@ export default function LandingPage() {
             </div>
             <div className="flex items-center space-x-3 md:space-x-4">
               <a
-                href="https://wa.me/9779863995341?text=Hello%2C%20I%20saw%20your%20website!" target="_blank"
+                href="https://wa.me/9779841757991?text=Hello%2C%20I%20saw%20your%20website!" target="_blank"
                 className="hover:text-orange-200 transition-colors duration-200 p-1 rounded"
               >
                 <WhatsAppIcon />
@@ -624,9 +625,15 @@ export default function LandingPage() {
 
           {/* Desktop Button & Mobile Menu Toggle */}
           <div className="flex items-center space-x-4">
-            <Button className="cursor-pointer hidden sm:block bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-sm md:text-base px-4 md:px-6">
+            
+            <a 
+              href="https://wa.me/9779841757991?text=Hello%2C%20I%20saw%20your%20website%20and%20I%20want%20to%20enroll%20in%20your%20training%20program."
+              target="_blank"
+              rel="noopener noreferrer" 
+              className="cursor-pointer hidden sm:block bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-sm md:text-base px-4 md:px-6 py-2 rounded-md text-white font-medium"
+            >
               Enroll Now
-            </Button>
+            </a>
 
             {/* Mobile Menu Button */}
             <button
@@ -667,9 +674,14 @@ export default function LandingPage() {
               >
                 Contact
               </a>
-              <Button className="w-full sm:hidden bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-sm mt-4">
+              <a 
+                href="https://wa.me/9779841757991?text=Hello%2C%20I%20saw%20your%20website%20and%20I%20want%20to%20enroll%20in%20your%20training%20program." 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:hidden bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-sm mt-4 px-4 py-2 rounded-md text-white font-medium text-center block"
+              >
                 Enroll Now
-              </Button>
+              </a>
             </nav>
           </div>
         )}
@@ -775,7 +787,11 @@ export default function LandingPage() {
                     Explore Training Programs
                   </Button>
                 </Link>
-                <Link href="#contact">
+                <a
+                  href="https://wa.me/9779841757991?text=Hello%2C%20I%20saw%20your%20website%20and%20I%20want%20to%20enroll%20in%20your%20training%20program."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Button
                     size="lg"
                     variant="outline"
@@ -783,7 +799,7 @@ export default function LandingPage() {
                   >
                     Enroll Now
                   </Button>
-                </Link>
+                </a>
               </motion.div>
             </motion.div>
 
@@ -987,7 +1003,7 @@ export default function LandingPage() {
                 <div className="w-12 h-12 md:w-16 md:h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <GraduationCap className="w-6 h-6 md:w-8 md:h-8 text-orange-600" />
                 </div>
-                <CardTitle className="text-lg md:text-xl">
+                <CardTitle className="text-black text-lg md:text-xl">
                   Expert Training
                 </CardTitle>
                 <div className="text-sm text-orange-600 font-medium">विशेषज्ञ तालिम</div>
@@ -1005,7 +1021,7 @@ export default function LandingPage() {
                 <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <TrendingUp className="w-6 h-6 md:w-8 md:h-8 text-blue-600" />
                 </div>
-                <CardTitle className="text-lg md:text-xl">
+                <CardTitle className="text-black text-lg md:text-xl">
                   Career Growth
                 </CardTitle>
                 <div className="text-sm text-blue-600 font-medium">करियर वृद्धि</div>
@@ -1023,7 +1039,7 @@ export default function LandingPage() {
                 <div className="w-12 h-12 md:w-16 md:h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <Award className="w-6 h-6 md:w-8 md:h-8 text-green-600" />
                 </div>
-                <CardTitle className="text-lg md:text-xl">
+                <CardTitle className="text-black text-lg md:text-xl">
                   Certification
                 </CardTitle>
                 <div className="text-sm text-green-600 font-medium">प्रमाणीकरण</div>
@@ -1089,7 +1105,7 @@ export default function LandingPage() {
                     <CardDescription className="text-gray-600 mb-3 md:mb-4 leading-relaxed text-sm md:text-base">
                       {service.description}
                     </CardDescription>
-                    <div className="space-y-2">
+                    <div className="space-y-2 mb-5">
                       {service.features.map((feature, featureIndex) => (
                         <div
                           key={featureIndex}
@@ -1100,6 +1116,14 @@ export default function LandingPage() {
                         </div>
                       ))}
                     </div>
+                    <a
+                      href={`https://wa.me/9779841757991?text=Hello%2C%20I%20saw%20your%20website%20and%20I'm%20interested%20in%20your%20${encodeURIComponent(service.title)}%20training.%20I%20want%20to%20enroll.`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-white text-sm py-2 px-4 rounded-full w-full transition-all duration-300 font-medium"
+                    >
+                      Enroll Now
+                    </a>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -1131,7 +1155,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Contact Section - keeping your existing implementation */}
+      {/* Contact Section - with enhanced form submission */}
       <section id="contact" className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -1183,8 +1207,8 @@ export default function LandingPage() {
                         Contact Numbers
                       </p>
                       <div className="text-gray-600 text-sm md:text-base space-y-1">
-                        <p>9841 5298 43</p>
-                        <p>98032 66 514</p>
+                        <p>+977 9841529843</p>
+                        <p>+977 9841757991</p>
                       </div>
                     </div>
                   </div>
@@ -1195,7 +1219,7 @@ export default function LandingPage() {
                         WhatsApp / Viber
                       </p>
                       <p className="text-gray-600 text-sm md:text-base">
-                        +977 9841529843
+                        +977 9841757991
                       </p>
                     </div>
                   </div>
@@ -1211,65 +1235,24 @@ export default function LandingPage() {
                     </div>
                   </div>
                 </div>
+                
+                {/* Add Google Map */}
+                <div className="mt-8 rounded-lg overflow-hidden h-60 shadow-md">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    className="border-0"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.1082868073436!2d85.31139047509384!3d27.71394267617877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb18fd7f4fbae7%3A0x8713d1151e276d79!2sTridevi%20Sadak%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1728371771578!5m2!1sen!2snp"
+                    title="Office Location"
+                    style={{ filter: 'contrast(1.05)' }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
               </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4 md:mb-6">
-                  Send us a Message
-                </h3>
-                <form className="space-y-4 md:space-y-6">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 mb-1 md:mb-2"
-                    >
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all text-sm md:text-base"
-                      placeholder="Your Name"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 mb-1 md:mb-2"
-                    >
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all text-sm md:text-base"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-gray-700 mb-1 md:mb-2"
-                    >
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      rows={4}
-                      className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all text-sm md:text-base"
-                      placeholder="Tell us about your training interests..."
-                    ></textarea>
-                  </div>
-                  <Button className="cursor-pointer w-full bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 py-2 md:py-3 text-sm md:text-base">
-                    Send Message
-                  </Button>
-                </form>
-              </motion.div>
+              <ContactForm />
             </div>
           </div>
         </div>
