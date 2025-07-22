@@ -1560,9 +1560,11 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-blue-600 rounded-full flex items-center justify-center">
-                  <HelpingHand className="w-4 h-4 text-white" />
-                </div>
+                <img
+              src="/logo.png"
+              alt="Namaste & Shalom Logo"
+              className="w-12 h-12 md:w-16 md:h-16 object-contain"
+            />
                 <span className="font-bold text-xl">Namaste & Shalom</span>
               </div>
               <p className="text-gray-400">
