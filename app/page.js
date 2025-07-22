@@ -620,12 +620,14 @@ export default function LandingPage() {
         }`}
       >
         <div className="container mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r from-orange-500 to-blue-600 rounded-full flex items-center justify-center">
-              <HelpingHand className="w-4 h-4 md:w-5 md:h-5 text-white" />
-            </div>
+          <div className="flex items-center space-x-3">
+            <img
+              src="/mainlogo.png"
+              alt="Namaste & Shalom Logo"
+              className="w-10 h-10 md:w-12 md:h-12 object-contain"
+            />
             <span className="font-bold text-lg md:text-xl text-gray-900">
-              N&S Trade
+              Namaste & Shalom
             </span>
           </div>
 
