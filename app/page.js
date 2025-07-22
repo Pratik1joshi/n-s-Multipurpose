@@ -619,12 +619,12 @@ export default function LandingPage() {
           isScrolled ? "shadow-md" : ""
         }`}
       >
-        <div className="container mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
+        <div className="container mx-auto px-4 py-1 md:py-1 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <img
-              src="/mainlogo.png"
+              src="/logo.png"
               alt="Namaste & Shalom Logo"
-              className="w-10 h-10 md:w-12 md:h-12 object-contain"
+              className="w-12 h-12 md:w-16 md:h-16 object-contain"
             />
             <span className="font-bold text-lg md:text-xl text-gray-900">
               Namaste & Shalom
