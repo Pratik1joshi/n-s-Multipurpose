@@ -261,6 +261,20 @@ export default function LandingPage() {
       ],
       category: "agricultural",
     },
+    // Healthcare & Caregiving
+    {
+      image: "/carenursing.jpg",
+      title: "Professional Nursing & Caregiving",
+      description:
+        "Essential nursing and caregiving skills for elderly, disabled, and children care.",
+      features: [
+        "Elderly Care",
+        "Disability Support",
+        "Child Care",
+        "Basic Medical Skills",
+      ],
+      category: "healthcare",
+    },
     {
       image: "/cook.jpg",
       title: "Cook & Hotel Management",
@@ -419,20 +433,6 @@ export default function LandingPage() {
       ],
       category: "financial",
     },
-    // Healthcare & Caregiving
-    {
-      image: "/carenursing.jpg",
-      title: "Basic Nursing & Caregiving",
-      description:
-        "Essential nursing and caregiving skills for elderly, disabled, and children care.",
-      features: [
-        "Elderly Care",
-        "Disability Support",
-        "Child Care",
-        "Basic Medical Skills",
-      ],
-      category: "healthcare",
-    },
     {
       image: "/housekeeping.jpg",
       title: "Housekeeping & Cleaning",
@@ -525,6 +525,34 @@ export default function LandingPage() {
       ],
       category: "professional",
 
+    },
+    // Healthcare & Pharmacy Services
+    {
+      image: "/pharmacy.jpg",
+      title: "Pharmacy Management Training",
+      description:
+        "Comprehensive pharmacy training covering retail, hospital, and clinical pharmacy management with internship and licensing support.",
+      features: [
+        "Retail Community Pharmacy",
+        "Hospital Clinical Pharmacy",
+        "Pharmaceutical Care",
+        "Pharmacy Internship & License"
+      ],
+      category: "healthcare",
+    },
+    // Entertainment & Arts
+    {
+      image: "/music.jpg",
+      title: "Entertainment & Musical Instruments Training",
+      description:
+        "Creative training programs in entertainment and musical instruments to develop artistic skills and performance abilities.",
+      features: [
+        "Musical Instrument Training",
+        "Performance Skills",
+        "Entertainment Industry",
+        "Creative Arts Development"
+      ],
+      category: "entertainment",
     },
   ];
 
@@ -1154,6 +1182,272 @@ export default function LandingPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Videos Section */}
+      {/* <section className="py-12 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12 md:mb-16"
+          >
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 md:mb-6">
+              Training Videos & Testimonials
+            </h2>
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+              Watch our training sessions, student testimonials, and get insights into our comprehensive educational programs.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8"> */}
+            {/* Video 1 */}
+            {/* <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+                <div className="relative">
+                  <div className="aspect-video bg-gray-200 rounded-t-lg overflow-hidden">
+                    <iframe
+                      className="w-full h-full"
+                      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                      title="Training Program Overview"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                </div>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-lg md:text-xl text-gray-900 group-hover:text-orange-600 transition-colors duration-300">
+                    Training Program Overview
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-gray-600 text-sm md:text-base">
+                    Get an overview of our comprehensive training programs and facilities.
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </motion.div> */}
+
+            {/* Video 2 */}
+            {/* <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+                <div className="relative">
+                  <div className="aspect-video bg-gray-200 rounded-t-lg overflow-hidden">
+                    <iframe
+                      className="w-full h-full"
+                      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                      title="Student Success Stories"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                </div>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-lg md:text-xl text-gray-900 group-hover:text-orange-600 transition-colors duration-300">
+                    Student Success Stories
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-gray-600 text-sm md:text-base">
+                    Hear from our successful graduates about their learning journey and career achievements.
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </motion.div> */}
+
+            {/* Video 3 */}
+            {/* <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+                <div className="relative">
+                  <div className="aspect-video bg-gray-200 rounded-t-lg overflow-hidden">
+                    <iframe
+                      className="w-full h-full"
+                      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                      title="Practical Training Sessions"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                </div>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-lg md:text-xl text-gray-900 group-hover:text-orange-600 transition-colors duration-300">
+                    Practical Training Sessions
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-gray-600 text-sm md:text-base">
+                    Watch our hands-on training sessions and see our teaching methodology in action.
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </motion.div> */}
+
+            {/* Video 4 */}
+            {/* <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+                <div className="relative">
+                  <div className="aspect-video bg-gray-200 rounded-t-lg overflow-hidden">
+                    <iframe
+                      className="w-full h-full"
+                      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                      title="Campus Tour"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                </div>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-lg md:text-xl text-gray-900 group-hover:text-orange-600 transition-colors duration-300">
+                    Campus Tour
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-gray-600 text-sm md:text-base">
+                    Take a virtual tour of our modern facilities and training equipment.
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </motion.div> */}
+
+            {/* Video 5 */}
+            {/* <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+                <div className="relative">
+                  <div className="aspect-video bg-gray-200 rounded-t-lg overflow-hidden">
+                    <iframe
+                      className="w-full h-full"
+                      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                      title="Instructor Profiles"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                </div>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-lg md:text-xl text-gray-900 group-hover:text-orange-600 transition-colors duration-300">
+                    Meet Our Instructors
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-gray-600 text-sm md:text-base">
+                    Get to know our experienced instructors and their expertise in various fields.
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </motion.div> */}
+
+            {/* Video 6 */}
+            {/* <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+                <div className="relative">
+                  <div className="aspect-video bg-gray-200 rounded-t-lg overflow-hidden">
+                    <iframe
+                      className="w-full h-full"
+                      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                      title="Admission Process"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                </div>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-lg md:text-xl text-gray-900 group-hover:text-orange-600 transition-colors duration-300">
+                    Admission Process
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-gray-600 text-sm md:text-base">
+                    Learn about our simple admission process and how to get started with your training.
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div> */}
+
+          {/* Call to Action */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="text-center mt-12 md:mt-16"
+          >
+            <div className="bg-gradient-to-r from-orange-50 to-blue-50 rounded-2xl p-6 md:p-8">
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+                Ready to Start Your Learning Journey?
+              </h3>
+              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+                Join thousands of successful students who have transformed their careers through our training programs.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="https://wa.me/9779841757991?text=Hello%2C%20I%20saw%20your%20website%20and%20I%20want%20to%20enroll%20in%20your%20training%20program."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button
+                    size="lg"
+                    className="cursor-pointer bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-sm md:text-base"
+                  >
+                    Enroll Now
+                  </Button>
+                </a>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  onClick={() => smoothScrollTo('contact')}
+                  className="cursor-pointer bg-white text-gray-900 border-gray-300 hover:bg-gray-50 text-sm md:text-base"
+                >
+                  Contact Us
+                </Button>
+              </div>
+            </div>
+          </motion.div>
+        {/* </div>
+      </section> */}
 
       {/* Contact Section - with enhanced form submission */}
       <section id="contact" className="py-12 md:py-20 bg-white">

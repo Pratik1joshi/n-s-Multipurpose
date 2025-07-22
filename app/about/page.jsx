@@ -127,14 +127,14 @@ export default function AboutPage() {
     },
     {
       icon: <Calendar className="w-8 h-8 md:w-12 md:h-12 text-green-600" />,
-      number: 10,
+      number: 15,
       suffix: "+",
       label: "Years of Experience",
       color: "green"
     },
     {
       icon: <Star className="w-8 h-8 md:w-12 md:h-12 text-yellow-600" />,
-      number: 100,
+      number: 98,
       suffix: "%",
       label: "Student Satisfaction",
       color: "yellow"
