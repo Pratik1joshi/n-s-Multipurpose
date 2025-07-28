@@ -7,6 +7,9 @@ export const metadata = {
   title: "Namaste & Shalom Multipurpose Trade",
   description:
     "Bridging cultures and markets with excellence. Your trusted partner for comprehensive trading solutions.",
+  icons: {
+    icon: '/favicon.png',
+  },
 }
 
 export default function RootLayout({ children }) {
