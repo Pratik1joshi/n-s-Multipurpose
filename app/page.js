@@ -247,33 +247,90 @@ export default function LandingPage() {
   };
 
   const allServices = [
-    // Core Training Programs
+    // Highlighted: Agricultural Related
     {
       image: "/agricultural.jpg",
-      title: "Agriculture Training",
+      title: "Agricultural Training",
       description:
-        "Comprehensive training in modern farming techniques, crop management, and sustainable agriculture practices.",
+        "Specialized training in modern agriculture, crop management, and sustainable farming. Includes hands-on workshops and business guidance for agri-entrepreneurs.",
       features: [
-        "Crop Management",
-        "Soil Science",
-        "Irrigation Systems",
-        "Pest Control",
+        "Modern Farming Techniques",
+        "Crop & Soil Management",
+        "Agri-Business Guidance",
+        "Sustainable Practices",
+        "Hands-on Workshops"
       ],
       category: "agricultural",
+      highlight: true,
+      extraImages: ["/agricultural.jpg", "/agriculture1.jpg", "/agriculture2.jpg"]
     },
-    // Healthcare & Caregiving
+    // Highlighted: Caregiver Related
     {
       image: "/carenursing.jpg",
       title: "Professional Nursing & Caregiving",
       description:
-        "Essential nursing and caregiving skills for elderly, disabled, and children care.",
+        "Comprehensive nursing and caregiver training for elderly, children, and special needs. Focus on practical skills, compassion, and international standards.",
       features: [
-        "Elderly Care",
+        "Elderly & Child Care",
         "Disability Support",
-        "Child Care",
-        "Basic Medical Skills",
+        "Practical Skills",
+        "International Standards",
+        "Compassionate Service"
       ],
       category: "healthcare",
+      highlight: true,
+      extraImages: ["/carenursing.jpg", "/nursing1.jpg", "/nursing3.jpg"]
+    },
+    // Highlighted: Wire & Cable Training
+    {
+      image: "/wire1.jpg",
+      title: "Wire & Cable Training",
+      description:
+        "Technical training in wire and cable installation, safety, and maintenance. Includes hands-on practice for aspiring technicians.",
+      features: [
+        "Wire Installation",
+        "Cable Fitting",
+        "Safety Protocols",
+        "Hands-on Practice",
+        "Technical Skills"
+      ],
+      category: "technical",
+      highlight: true,
+      extraImages: ["/wire1.jpg", "/wire2.jpg", '/plumbing.png']
+    },
+    // Highlighted: Marketing & Business
+    {
+      image: "/digitalmarketing.jpg",
+      title: "Marketing & Business",
+      description:
+        "Comprehensive training in marketing strategies, business setup, and entrepreneurship. Learn digital marketing, sales, and business management.",
+      features: [
+        "Digital Marketing",
+        "Business Setup",
+        "Sales Strategies",
+        "Entrepreneurship",
+        "Market Analysis"
+      ],
+      category: "business",
+      highlight: true,
+      extraImages: ["/digitalmarketing.jpg", "/marketing1.jpg", '/marketing2.jpg']
+    },
+    // Highlighted: Construction
+    {
+      image: "/building.jpg",
+      title: "Construction",
+      description:
+        "Training in construction skills, building techniques, and project management. Focus on safety, quality, and hands-on experience.",
+      features: [
+        "Construction Techniques",
+        "Project Management",
+        "Safety Standards",
+        "Quality Control",
+        "Hands-on Training"
+      ],
+      category: "construction",
+      highlight: true,
+      extraImages: ["/building.jpg", "/construction1.jpg", '/construction2.jpg']
     },
     {
       image: "/cook.jpg",
@@ -445,20 +502,6 @@ export default function LandingPage() {
         "Equipment Handling",
       ],
       category: "hospitality",
-    },
-    // Construction & Technical
-    {
-      image: "/building.jpg",
-      title: "Building & Construction",
-      description:
-        "Construction skills, building techniques, and project management in the construction industry.",
-      features: [
-        "Construction Techniques",
-        "Safety Standards",
-        "Project Management",
-        "Quality Control",
-      ],
-      category: "construction",
     },
     {
       image: "/plumbing.png",
@@ -1105,59 +1148,83 @@ export default function LandingPage() {
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {displayedServices.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="group h-full border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white overflow-hidden">
-                  <div className="relative h-48 md:h-56 overflow-hidden">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div className="absolute top-3 left-3">
-                      <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded-full capitalize">
-                        {service.category}
-                      </span>
+            {displayedServices.map((service, index) => {
+              // State for selected image per card
+              const [selectedImage, setSelectedImage] = useState(service.image);
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className={`group h-full border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white overflow-hidden ${service.highlight ? 'ring-4 ring-orange-400/60 relative' : ''}`}>
+                    {/* Highlight badge */}
+                    {service.highlight && (
+                      <div className="absolute top-3 right-3 z-20">
+                        <span className="bg-gradient-to-r from-orange-500 to-blue-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg animate-pulse">Specialized</span>
+                      </div>
+                    )}
+                    {/* Extra images carousel/thumbnails */}
+                    {service.extraImages && service.extraImages.length > 1 && (
+                      <div className="flex gap-2 justify-center items-center pt-3 pb-1">
+                        {service.extraImages.map((img, i) => (
+                          <img
+                            key={i}
+                            src={img}
+                            alt={service.title + ' extra ' + (i+1)}
+                            className={`w-10 h-10 object-cover rounded-full border-2 ${selectedImage === img ? 'border-blue-500 ring-2 ring-blue-300' : 'border-orange-300'} shadow-sm cursor-pointer transition-all`}
+                            onClick={() => setSelectedImage(img)}
+                          />
+                        ))}
+                      </div>
+                    )}
+                    <div className="relative h-48 md:h-56 overflow-hidden">
+                      <img
+                        src={selectedImage || service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                      <div className="absolute top-3 left-3">
+                        <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded-full capitalize">
+                          {service.category}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                  <CardHeader className="text-center pb-3 md:pb-4">
-                    <CardTitle className="text-lg md:text-xl text-gray-900 group-hover:text-orange-600 transition-colors duration-300">
-                      {service.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-center pt-0">
-                    <CardDescription className="text-gray-600 mb-3 md:mb-4 leading-relaxed text-sm md:text-base">
-                      {service.description}
-                    </CardDescription>
-                    <div className="space-y-2 mb-5">
-                      {service.features.map((feature, featureIndex) => (
-                        <div
-                          key={featureIndex}
-                          className="flex items-center text-xs md:text-sm text-gray-600"
-                        >
-                          <div className="w-2 h-2 bg-orange-500 rounded-full mr-3 flex-shrink-0"></div>
-                          {feature}
-                        </div>
-                      ))}
-                    </div>
-                    <a
-                      href={`https://wa.me/9779841757991?text=Hello%2C%20I%20saw%20your%20website%20and%20I'm%20interested%20in%20your%20${encodeURIComponent(service.title)}%20training.%20I%20want%20to%20enroll.`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-4 inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-white text-sm py-2 px-4 rounded-full w-full transition-all duration-300 font-medium"
-                    >
-                      Enroll Now
-                    </a>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                    <CardHeader className="text-center pb-3 md:pb-4">
+                      <CardTitle className="text-lg md:text-xl text-gray-900 group-hover:text-orange-600 transition-colors duration-300">
+                        {service.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-center pt-0">
+                      <CardDescription className="text-gray-600 mb-3 md:mb-4 leading-relaxed text-sm md:text-base">
+                        {service.description}
+                      </CardDescription>
+                      <div className="space-y-2 mb-5">
+                        {service.features.map((feature, featureIndex) => (
+                          <div
+                            key={featureIndex}
+                            className="flex items-center text-xs md:text-sm text-gray-600"
+                          >
+                            <div className="w-2 h-2 bg-orange-500 rounded-full mr-3 flex-shrink-0"></div>
+                            {feature}
+                          </div>
+                        ))}
+                      </div>
+                      <a
+                        href={`https://wa.me/9779841757991?text=Hello%2C%20I%20saw%20your%20website%20and%20I'm%20interested%20in%20your%20${encodeURIComponent(service.title)}%20training.%20I%20want%20to%20enroll.`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-white text-sm py-2 px-4 rounded-full w-full transition-all duration-300 font-medium"
+                      >
+                        Enroll Now
+                      </a>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* View More/Less Button */}

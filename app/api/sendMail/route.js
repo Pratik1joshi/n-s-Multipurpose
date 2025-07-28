@@ -3,9 +3,11 @@ import nodemailer from 'nodemailer';
 export async function POST(req) {
   const { name, email, message } = await req.json();
 
-  // Create a transporter with your SMTP credentials
+  // Create transporter for cPanel SMTP
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: process.env.SMTP_HOST,
+    port: process.env.SMTP_PORT,
+    secure: true, // true for 465, false for 587
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
@@ -13,8 +15,9 @@ export async function POST(req) {
   });
 
   const mailOptions = {
-    from: email, // Sender email address (from the form input)
-    to: process.env.SMTP_USER, // Where you want to receive the contact form submissions
+    from: `"${name}" <${process.env.SMTP_USER}>`, // sender
+    to: process.env.SMTP_USER, // your inbox
+    replyTo: email, // the email from contact form
     subject: `New Contact Form Submission from ${name}`,
     html: `
       <h1>New Message from ${name}</h1>
@@ -24,7 +27,6 @@ export async function POST(req) {
   };
 
   try {
-    // Send the email
     await transporter.sendMail(mailOptions);
     return new Response(JSON.stringify({ success: true }), { status: 200 });
   } catch (error) {
