@@ -251,6 +251,7 @@ export default function LandingPage() {
     {
       image: "/agricultural.jpg",
       title: "Agricultural Training",
+      slug: "agricultural-training",
       description:
         "Specialized training in modern agriculture, crop management, and sustainable farming. Includes hands-on workshops and business guidance for agri-entrepreneurs.",
       features: [
@@ -268,6 +269,7 @@ export default function LandingPage() {
     {
       image: "/carenursing.jpg",
       title: "Professional Nursing & Caregiving",
+      slug: "professional-nursing-caregiving",
       description:
         "Comprehensive nursing and caregiver training for elderly, children, and special needs. Focus on practical skills, compassion, and international standards.",
       features: [
@@ -285,6 +287,7 @@ export default function LandingPage() {
     {
       image: "/wire1.jpg",
       title: "Wire & Cable Training",
+      slug: "wire-cable-training",
       description:
         "Technical training in wire and cable installation, safety, and maintenance. Includes hands-on practice for aspiring technicians.",
       features: [
@@ -302,6 +305,7 @@ export default function LandingPage() {
     {
       image: "/digitalmarketing.jpg",
       title: "Marketing & Business",
+      slug: "marketing-business",
       description:
         "Comprehensive training in marketing strategies, business setup, and entrepreneurship. Learn digital marketing, sales, and business management.",
       features: [
@@ -319,6 +323,7 @@ export default function LandingPage() {
     {
       image: "/building.jpg",
       title: "Construction",
+      slug: "construction",
       description:
         "Training in construction skills, building techniques, and project management. Focus on safety, quality, and hands-on experience.",
       features: [
@@ -335,6 +340,7 @@ export default function LandingPage() {
     {
       image: "/cook.jpg",
       title: "Cook & Hotel Management",
+      slug: "cook-hotel-management",
       description:
         "Professional culinary arts and hospitality management training for the hotel and restaurant industry.",
       features: [
@@ -348,6 +354,7 @@ export default function LandingPage() {
     {
       image: "/computer.jpg",
       title: "Computer Training",
+      slug: "computer-training",
       description:
         "Basic to advanced computer skills including MS Office, data entry, and digital literacy.",
       features: [
@@ -361,6 +368,7 @@ export default function LandingPage() {
     {
       image: "/accounting.jpg",
       title: "Accounting Training",
+      slug: "accounting-training",
       description:
         "Professional accounting and bookkeeping training with practical business applications.",
       features: [
@@ -374,6 +382,7 @@ export default function LandingPage() {
     {
       image: "/drive.jpg",
       title: "Driving Training",
+      slug: "driving-training",
       description:
         "Professional driving instruction for various vehicle types with safety-focused approach.",
       features: [
@@ -387,6 +396,7 @@ export default function LandingPage() {
     {
       image: "/bridge-course-scaled.jpg",
       title: "Bridge Course",
+      slug: "bridge-course",
       description:
         "Preparatory courses to bridge educational gaps and prepare students for advanced studies.",
       features: [
@@ -401,6 +411,7 @@ export default function LandingPage() {
     {
       image: "/webdesign.png",
       title: "Web Design",
+      slug: "web-design",
       description:
         "Learn modern web designing technologies, design principles, and full designing skills.",
       features: [
@@ -414,6 +425,7 @@ export default function LandingPage() {
     {
       image: "/webdevelopment.jpg",
       title: "Web Development",
+      slug: "web-development",
       description:
         "Learn modern web development technologies, development principles, and full-stack development skills.",
       features: [
@@ -427,6 +439,7 @@ export default function LandingPage() {
     {
       image: "/Digital-Marketing.jpg",
       title: "Digital Marketing",
+      slug: "digital-marketing",
       description:
         "Master digital marketing strategies, SEO, social media marketing, and online advertising.",
       features: [
@@ -441,6 +454,7 @@ export default function LandingPage() {
     {
       image: "/forextrading.png",
       title: "Forex Trading",
+      slug: "forex-trading",
       description:
         "Professional forex trading education covering market analysis, risk management, and trading strategies.",
       features: [
@@ -454,6 +468,7 @@ export default function LandingPage() {
     {
       image: "/Share_market.jpg",
       title: "Share Market Training",
+      slug: "share-market-training",
       description:
         "Comprehensive stock market education including fundamental and technical analysis.",
       features: [
@@ -467,6 +482,7 @@ export default function LandingPage() {
     {
       image: "/banking-insurance.jpeg",
       title: "Banking & Insurance Training",
+      slug: "banking-insurance-training",
       description:
         "Banking operations, insurance products, and financial services training with internship opportunities.",
       features: [
@@ -480,6 +496,7 @@ export default function LandingPage() {
     {
       image: "/income.jpg",
       title: "Income-Based Programs",
+      slug: "income-based-programs",
       description:
         "Practical training programs designed to generate immediate income opportunities.",
       features: [
@@ -493,6 +510,7 @@ export default function LandingPage() {
     {
       image: "/housekeeping.jpg",
       title: "Housekeeping & Cleaning",
+      slug: "housekeeping-cleaning",
       description:
         "Professional housekeeping, cleaning techniques, and hospitality maintenance services.",
       features: [
@@ -506,6 +524,7 @@ export default function LandingPage() {
     {
       image: "/plumbing.png",
       title: "Electrical & Plumbing",
+      slug: "electrical-plumbing",
       description:
         "Wire fitting, electrical installations, plumbing, and pipe fitting technical training.",
       features: [
@@ -520,6 +539,7 @@ export default function LandingPage() {
     {
       image: "/communication.jpg",
       title: "Communication Skills",
+      slug: "communication-skills",
       description:
         "Enhance your verbal and written communication skills for professional success.",
       features: [
@@ -533,6 +553,7 @@ export default function LandingPage() {
     {
       image: "/translationgraphic.jpg",
       title: "Translation Services",
+      slug: "translation-services",
       description:
         "Professional translation training and services for multiple languages and document types.",
       features: [
@@ -662,20 +683,30 @@ export default function LandingPage() {
           isScrolled ? "shadow-md" : ""
         }`}
       >
-        <div className="container mx-auto px-4 py-1 md:py-1 flex items-center justify-between">
+        <div className="container mx-auto px-4 py-1 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <img
-              src="/logo.png"
-              alt="Namaste & Shalom Logo"
-              className="w-12 h-12 md:w-16 md:h-16 object-contain"
-            />
+            <Link href="/" className="flex items-center space-x-2">
+              <img
+                src="/logo.png"
+                alt="Namaste & Shalom Logo"
+                className="w-12 h-12 md:w-16 md:h-16 object-contain"
+              />
+            
             <span className="font-bold text-lg md:text-xl text-gray-900">
               Namaste & Shalom
             </span>
+            
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-6">
+            <Link
+              href="/"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              Home
+            </Link>
             <a
               href="#about"
               className="text-gray-600 hover:text-gray-900 transition-colors"
@@ -686,8 +717,26 @@ export default function LandingPage() {
               href="#services"
               className="text-gray-600 hover:text-gray-900 transition-colors"
             >
-              Training Programs
+              Training Services
             </a>
+            <Link
+              href="/teams"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              Teams
+            </Link>
+            <Link
+              href="/events"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              Next Events
+            </Link>
+            <Link
+              href="/exams"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              Exams
+            </Link>
             <a
               href="#contact"
               className="text-gray-600 hover:text-gray-900 transition-colors"
@@ -726,6 +775,13 @@ export default function LandingPage() {
         {isMobileMenuOpen && (
           <div className="md:hidden border-t bg-white">
             <nav className="container mx-auto px-4 py-4 space-y-4">
+              <Link
+                href="/"
+                className="block text-gray-600 hover:text-gray-900 transition-colors py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
               <a
                 href="#about"
                 className="block text-gray-600 hover:text-gray-900 transition-colors py-2"
@@ -738,8 +794,29 @@ export default function LandingPage() {
                 className="block text-gray-600 hover:text-gray-900 transition-colors py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Training Programs
+                Training Services
               </a>
+              <Link
+                href="/teams"
+                className="block text-gray-600 hover:text-gray-900 transition-colors py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Teams
+              </Link>
+              <Link
+                href="/events"
+                className="block text-gray-600 hover:text-gray-900 transition-colors py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Next Events
+              </Link>
+              <Link
+                href="/exams"
+                className="block text-gray-600 hover:text-gray-900 transition-colors py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Exams
+              </Link>
               <a
                 href="#contact"
                 className="block text-gray-600 hover:text-gray-900 transition-colors py-2"
@@ -884,7 +961,7 @@ export default function LandingPage() {
             >
               <div className="relative z-10">
                 <img
-                  src="/profile1.jpg"
+                  src="/visitingcard1.png"
                   alt="Global Trade Network"
                   className="w-full rounded-lg shadow-2xl"
                 />
@@ -1212,14 +1289,24 @@ export default function LandingPage() {
                           </div>
                         ))}
                       </div>
-                      <a
-                        href={`https://wa.me/9779841757991?text=Hello%2C%20I%20saw%20your%20website%20and%20I'm%20interested%20in%20your%20${encodeURIComponent(service.title)}%20training.%20I%20want%20to%20enroll.`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-4 inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-white text-sm py-2 px-4 rounded-full w-full transition-all duration-300 font-medium"
-                      >
-                        Enroll Now
-                      </a>
+                      <div className="space-y-3">
+                        <Link href={`/services/${service.slug || service.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')}`}>
+                          <Button
+                            variant="outline"
+                            className="w-full rounded-full text-sm py-2 px-4 bg-white border-orange-500 text-orange-600 hover:bg-orange-50"
+                          >
+                            View Details
+                          </Button>
+                        </Link>
+                        <a
+                          href={`https://wa.me/9779841757991?text=Hello%2C%20I%20saw%20your%20website%20and%20I'm%20interested%20in%20your%20${encodeURIComponent(service.title)}%20training.%20I%20want%20to%20enroll.`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex mt-2 items-center justify-center bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-white text-sm py-2 px-4 rounded-full w-full transition-all duration-300 font-medium"
+                        >
+                          Enroll Now
+                        </a>
+                      </div>
                     </CardContent>
                   </Card>
                 </motion.div>
