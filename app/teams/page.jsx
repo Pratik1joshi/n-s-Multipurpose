@@ -470,11 +470,11 @@ export default function TeamsPage() {
                         className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
-                    <div className="absolute top-4 right-4">
+                    {/* <div className="absolute top-4 right-4">
                       <span className="bg-white/90 text-orange-600 text-xs px-2 py-1 rounded-full font-medium">
                         {member.experience}
                       </span>
-                    </div>
+                    </div> */}
                   </div>
 
                   <CardHeader className="text-center pb-4">
