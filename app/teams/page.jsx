@@ -68,15 +68,16 @@ export default function TeamsPage() {
     {
       name: "Yamakanta nyaupane",
       position: "Managing Director & Chief Instructor",
-      specialization: "Agricultural Sciences & Business Development",
+      specialization: "International Business & Training Development",
       experience: "15+ Years",
-      education: "PhD in Agricultural Sciences, MBA",
-      image: "/profile1.jpg",
-      bio: "Leading our institute with vision and expertise in agricultural innovation and business development.",
+      education: "",
+      image: "/profilepic.jpg",
+      bio: "Visionary leader with extensive international experience across multiple continents. Has personally visited and conducted business in over 5 countries, bringing global perspectives and cross-cultural expertise to our training programs.",
       achievements: [
-        "Published 20+ research papers",
-        "International consultant",
-        "Award-winning educator"
+        "1994 - France, Netherlands, Belgium, Greece, Israel",
+        "2000 - Hanover Expo, Germany & 2001 - Singapore Expo",
+        "2020 - IMTM Travel Tourism Fair, Tel Aviv",
+        "2024 - Japan, Thailand, Malaysia & Dubai"
       ],
       email: "rajesh@namastelanding.com",
       phone: "+977 9841529843"
@@ -381,7 +382,7 @@ export default function TeamsPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-16 md:py-24 bg-gradient-to-br from-orange-50 via-white to-blue-50">
+      <section className="relative py-12 md:py-16 bg-gradient-to-br from-orange-50 via-white to-blue-50">
         <div className="container mx-auto px-4">
           <motion.div
             variants={containerVariants}
@@ -413,7 +414,7 @@ export default function TeamsPage() {
               Our dedicated team of experienced professionals is committed to providing you with the highest quality education and training. Meet the experts who will guide your learning journey.
             </motion.p>
 
-            <motion.div
+            {/* <motion.div
               variants={itemVariants}
               className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-12"
             >
@@ -428,13 +429,13 @@ export default function TeamsPage() {
                   <p className="text-sm md:text-base text-gray-600">{stat.label}</p>
                 </div>
               ))}
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
       </section>
 
       {/* Team Members Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -485,13 +486,15 @@ export default function TeamsPage() {
                   </CardHeader>
 
                   <CardContent className="pt-0">
-                    <div className="mb-4">
-                      <h4 className="font-medium text-gray-900 mb-2 flex items-center">
-                        <GraduationCap className="w-4 h-4 mr-2 text-blue-600" />
-                        Education
-                      </h4>
-                      <p className="text-sm text-gray-600">{member.education}</p>
-                    </div>
+                    {member.education && (
+                      <div className="mb-4">
+                        <h4 className="font-medium text-gray-900 mb-2 flex items-center">
+                          <GraduationCap className="w-4 h-4 mr-2 text-blue-600" />
+                          Education
+                        </h4>
+                        <p className="text-sm text-gray-600">{member.education}</p>
+                      </div>
+                    )}
 
                     <div className="mb-4">
                       <h4 className="font-medium text-gray-900 mb-2 flex items-center">
@@ -504,7 +507,7 @@ export default function TeamsPage() {
                     <div className="mb-4">
                       <h4 className="font-medium text-gray-900 mb-2 flex items-center">
                         <Award className="w-4 h-4 mr-2 text-yellow-600" />
-                        Key Achievements
+                        {index === 0 ? "Traveled History" : "Key Achievements"}
                       </h4>
                       <ul className="space-y-1">
                         {member.achievements.map((achievement, achievementIndex) => (

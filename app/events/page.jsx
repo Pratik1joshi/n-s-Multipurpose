@@ -470,10 +470,21 @@ export default function EventsPage() {
               variants={itemVariants}
               className="text-lg md:text-xl text-gray-600 mb-8"
             >
-              Join our upcoming training events, workshops, and special programs designed to enhance your skills and advance your career. Don't miss these valuable learning opportunities.
+              We are planning exciting training events, workshops, and special programs. Stay tuned for upcoming schedules and registration details.
             </motion.p>
 
+            {/* Coming Soon Badge */}
             <motion.div
+              variants={itemVariants}
+              className="mb-12"
+            >
+              <div className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg">
+                <Clock className="w-6 h-6" />
+                Coming Soon
+              </div>
+            </motion.div>
+
+            {/* <motion.div
               variants={itemVariants}
               className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-12"
             >
@@ -488,12 +499,12 @@ export default function EventsPage() {
                   <p className="text-sm md:text-base text-gray-600">{stat.label}</p>
                 </div>
               ))}
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
       </section>
 
-      {/* Events Grid Section */}
+      {/* Coming Soon Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
@@ -501,133 +512,88 @@ export default function EventsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Upcoming Training Events
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Explore our comprehensive schedule of training events, workshops, and educational programs designed to advance your skills and career.
-            </p>
-          </motion.div>
-
-          {/* Event Categories */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="flex flex-wrap justify-center gap-4 mb-12"
-          >
-            {eventCategories.map((category, index) => (
-              <div key={index} className="flex items-center bg-gray-50 px-4 py-2 rounded-full">
-                <div className={`w-3 h-3 rounded-full mr-2 ${getCategoryColor(category.name)}`}></div>
-                <span className="text-sm font-medium text-gray-700">{category.name}</span>
-                <span className="text-xs text-gray-500 ml-2">({category.count})</span>
+            <div className="mb-12">
+              <div className="w-32 h-32 bg-gradient-to-br from-orange-100 to-blue-100 rounded-full flex items-center justify-center mx-auto mb-8">
+                <Calendar className="w-16 h-16 text-orange-600" />
               </div>
-            ))}
-          </motion.div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Exciting Events Coming Soon
+              </h2>
+              <p className="text-lg text-gray-600 mb-8">
+                We are currently organizing comprehensive training events, workshops, and special programs to enhance your skills and advance your career. These events will feature expert instructors, hands-on learning, and networking opportunities.
+              </p>
+            </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {upcomingEvents.map((event, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-white overflow-hidden">
-                  <div className="relative">
-                    <div className={`h-2 ${getCategoryColor(event.category)}`}></div>
-                    <div className="absolute top-4 right-4">
-                      <span className={`text-xs px-2 py-1 rounded-full font-medium ${getStatusColor(event.status)}`}>
-                        {event.status}
-                      </span>
-                    </div>
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <CardHeader className="text-center">
+                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <BookOpen className="w-8 h-8 text-blue-600" />
                   </div>
+                  <CardTitle className="text-xl text-gray-900">Training Workshops</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-gray-600">Intensive workshops covering agricultural techniques, healthcare, technology, and professional skills development.</p>
+                </CardContent>
+              </Card>
 
-                  <CardHeader className="pb-4">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm text-orange-600 font-medium">{event.category}</span>
-                      <div className="flex items-center text-xs text-gray-500">
-                        <Clock className="w-3 h-3 mr-1" />
-                        {event.duration}
-                      </div>
-                    </div>
-                    <CardTitle className="text-xl text-gray-900 group-hover:text-orange-600 transition-colors duration-300 leading-tight">
-                      {event.title}
-                    </CardTitle>
-                  </CardHeader>
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <CardHeader className="text-center">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Users className="w-8 h-8 text-green-600" />
+                  </div>
+                  <CardTitle className="text-xl text-gray-900">Networking Events</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-gray-600">Connect with industry professionals, alumni, and fellow learners to expand your professional network and opportunities.</p>
+                </CardContent>
+              </Card>
 
-                  <CardContent className="pt-0">
-                    <div className="space-y-3 mb-4">
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Calendar className="w-4 h-4 mr-2 text-orange-500" />
-                        {event.date}
-                      </div>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Clock className="w-4 h-4 mr-2 text-blue-500" />
-                        {event.time}
-                      </div>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <MapPin className="w-4 h-4 mr-2 text-green-500" />
-                        {event.location}
-                      </div>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Users className="w-4 h-4 mr-2 text-purple-500" />
-                        {event.participants}
-                      </div>
-                    </div>
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <CardHeader className="text-center">
+                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Star className="w-8 h-8 text-orange-600" />
+                  </div>
+                  <CardTitle className="text-xl text-gray-900">Special Programs</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-gray-600">Career guidance sessions, skill assessment programs, and industry-specific training events tailored to market demands.</p>
+                </CardContent>
+              </Card>
+            </div>
 
-                    <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                      {event.description}
-                    </p>
-
-                    <div className="mb-4">
-                      <h4 className="font-medium text-gray-900 mb-2">Event Highlights:</h4>
-                      <ul className="space-y-1">
-                        {event.highlights.map((highlight, highlightIndex) => (
-                          <li key={highlightIndex} className="flex items-center text-sm text-gray-600">
-                            <div className="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2 flex-shrink-0"></div>
-                            {highlight}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="border-t pt-4 mb-4">
-                      <div className="grid grid-cols-2 gap-4 text-sm">
-                        <div>
-                          <span className="text-gray-500">Instructor:</span>
-                          <p className="font-medium text-gray-900">{event.instructor}</p>
-                        </div>
-                        <div>
-                          <span className="text-gray-500">Fee:</span>
-                          <p className="font-medium text-green-600">{event.fee}</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col gap-2">
-                      <a
-                        href={`https://wa.me/9779841757991?text=Hello%2C%20I%20want%20to%20register%20for%20the%20${encodeURIComponent(event.title)}%20event%20scheduled%20for%20${encodeURIComponent(event.date)}.%20Please%20provide%20me%20with%20registration%20details.`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-white text-sm py-2 px-4 rounded-full transition-all duration-300 font-medium text-center flex items-center justify-center"
-                      >
-                        Register Now
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </a>
-                      <button className="border border-orange-500 text-orange-600 hover:bg-orange-50 text-sm py-2 px-4 rounded-full transition-all duration-300 font-medium">
-                        Learn More
-                      </button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+            <div className="bg-gradient-to-r from-orange-50 to-blue-50 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Be the First to Know</h3>
+              <p className="text-gray-600 mb-6">
+                Stay updated on our upcoming events and be among the first to register when they become available. Get exclusive early bird discounts and priority access.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="https://wa.me/9779841757991?text=Hello%2C%20I%20want%20to%20be%20notified%20about%20upcoming%20training%20events%20and%20workshops.%20Please%20keep%20me%20updated."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button
+                    size="lg"
+                    className="cursor-pointer bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700"
+                  >
+                    Get Notified
+                  </Button>
+                </a>
+                <Link href="/">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="cursor-pointer bg-white text-gray-900 border-gray-300 hover:bg-gray-50"
+                  >
+                    View Training Programs
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -642,14 +608,14 @@ export default function EventsPage() {
             className="text-center max-w-4xl mx-auto"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Don't Miss Our Upcoming Events
+              Stay Connected for Upcoming Events
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-              Register early to secure your spot in our popular training programs. Limited seats available for each event. Contact us for group discounts and special packages.
+              We're working on exciting training events and workshops. Contact us to stay informed about upcoming programs and get priority registration when they become available.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://wa.me/9779841757991?text=Hello%2C%20I%20want%20to%20know%20more%20about%20your%20upcoming%20events%20and%20registration%20process."
+                href="https://wa.me/9779841757991?text=Hello%2C%20I%20want%20to%20know%20more%20about%20your%20upcoming%20events%20and%20workshops.%20Please%20keep%20me%20updated."
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -657,7 +623,7 @@ export default function EventsPage() {
                   size="lg"
                   className="cursor-pointer bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700"
                 >
-                  Register for Events
+                  Get Updates
                 </Button>
               </a>
               <Link href="/">
@@ -666,7 +632,7 @@ export default function EventsPage() {
                   variant="outline"
                   className="cursor-pointer bg-white text-gray-900 border-gray-300 hover:bg-gray-50"
                 >
-                  View All Programs
+                  View Training Programs
                 </Button>
               </Link>
             </div>
